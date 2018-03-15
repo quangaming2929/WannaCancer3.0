@@ -34,9 +34,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(120, 14);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WannaCancer";
             this.Text = "Form1";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WannaCancer_FormClosing);
+            this.Click += new System.EventHandler(this.WannaCancer_Click);
             this.ResumeLayout(false);
 
         }

