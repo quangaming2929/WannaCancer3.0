@@ -61,6 +61,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="WannaCancer.resx">
       <DependentUpon>WannaCancer.cs</DependentUpon>
@@ -77,6 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EN.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JP.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VI.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallPaper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
