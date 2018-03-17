@@ -111,13 +111,14 @@
             // lbRaiseTimeLeft
             // 
             this.lbRaiseTimeLeft.AutoSize = true;
-            this.lbRaiseTimeLeft.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRaiseTimeLeft.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRaiseTimeLeft.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbRaiseTimeLeft.Location = new System.Drawing.Point(25, 94);
+            this.lbRaiseTimeLeft.Location = new System.Drawing.Point(52, 91);
             this.lbRaiseTimeLeft.Name = "lbRaiseTimeLeft";
-            this.lbRaiseTimeLeft.Size = new System.Drawing.Size(43, 17);
+            this.lbRaiseTimeLeft.Size = new System.Drawing.Size(54, 21);
             this.lbRaiseTimeLeft.TabIndex = 3;
             this.lbRaiseTimeLeft.Text = "label8";
+            this.lbRaiseTimeLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbDesTimeLeftRaise
             // 
@@ -167,13 +168,14 @@
             // lbLostTimeLeft
             // 
             this.lbLostTimeLeft.AutoSize = true;
-            this.lbLostTimeLeft.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLostTimeLeft.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLostTimeLeft.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbLostTimeLeft.Location = new System.Drawing.Point(25, 96);
+            this.lbLostTimeLeft.Location = new System.Drawing.Point(52, 94);
             this.lbLostTimeLeft.Name = "lbLostTimeLeft";
-            this.lbLostTimeLeft.Size = new System.Drawing.Size(43, 17);
+            this.lbLostTimeLeft.Size = new System.Drawing.Size(54, 21);
             this.lbLostTimeLeft.TabIndex = 4;
             this.lbLostTimeLeft.Text = "label9";
+            this.lbLostTimeLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbDesTimeLeftLost
             // 
@@ -285,6 +287,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "GUIMain";
             this.Text = "Wanna DeCanceror 3.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUIMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlRaise.ResumeLayout(false);
             this.pnlRaise.PerformLayout();

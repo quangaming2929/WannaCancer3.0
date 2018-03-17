@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 
@@ -13,12 +13,24 @@ namespace WannaDeCancer
 {
     public partial class GUIMain : Form
     {
+        #region Field
+        DateTimeConverter dateTimeConverter;
+        DateTime raise;
+        DateTime lost;
+        Thread expireCountDown;
+        bool isTimeCorrect = true;
+        #endregion
+
+        #region Contructor
         public GUIMain()
         {
             InitializeComponent();
             CustomInit();
         }
+        #endregion
 
+
+        #region Method
         private void CustomInit()
         {
             //Each time the combobox change value, trigger the Decription()
@@ -27,6 +39,17 @@ namespace WannaDeCancer
 
             //Time
             DateTimeCalculate();
+            dateTimeConverter = new DateTimeConverter();
+            ReadTimeInfoFromFile();
+            expireCountDown = new Thread(TimeCountDown);
+            if (isTimeCorrect)
+                expireCountDown.Start();
+            else
+            {
+                lbLostTimeLeft.Text = "Invaild Format!!!";
+                lbRaiseTimeLeft.Text = "Invaild Format!!!";
+            }
+
         }
 
         private void DateTimeCalculate()
@@ -55,10 +78,7 @@ namespace WannaDeCancer
             lbLostExpire.Text = split[2].Substring(7);
         }
 
-        private void CbxLang_TextChanged(object sender, EventArgs e)
-        {
-            Description();
-        }
+        
 
         /// <summary>
         /// Change the txbDecription to desired Languges
@@ -106,8 +126,47 @@ namespace WannaDeCancer
 
         private void TimeCountDown()
         {
-            DateTime dt = DateTime.Now;
+            while (true)
+            {
+                // Minus
+                TimeSpan raiseCountDown = raise - DateTime.Now;
+                TimeSpan lostCountDown = lost - DateTime.Now;
 
+                // Set the label text = timeSpan
+                lbRaiseTimeLeft.Text = raiseCountDown.ToString().Substring(0, raiseCountDown.ToString().LastIndexOf('.'));
+                lbLostTimeLeft.Text = lostCountDown.ToString().Substring(0, lostCountDown.ToString().LastIndexOf('.'));
+            }
         }
+
+        private void ReadTimeInfoFromFile()
+        {
+            try
+            {
+                raise = (DateTime)dateTimeConverter.ConvertFromString(Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF))[1].Substring(7));
+                lost = (DateTime)dateTimeConverter.ConvertFromString(Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF))[2].Substring(7));
+            }
+            catch
+            {
+                //If the file is corrupted or wring format, the DateTime is set to today and
+                //the MessageBox will show up that your file is Corrputed and cant cant be recover
+                isTimeCorrect = false;
+                raise = DateTime.Now;
+                raise = DateTime.Now;
+                MessageBox.Show("The time file has been corrupted so we can't recover your files\r\nContract via send window to get help and validate!");
+            }
+        }
+
+        #endregion
+
+        #region Event Handler
+        private void GUIMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+        private void CbxLang_TextChanged(object sender, EventArgs e)
+        {
+            Description();
+        }
+        #endregion
     }
 }

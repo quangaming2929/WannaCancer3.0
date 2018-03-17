@@ -64,5 +64,15 @@ namespace WannaDeCancer
             fs.Write(stream, 0, stream.Length);
             fs.Close();
         }
+
+        public static string[] SplitLineFromString(string text)
+        {
+            string[] result = text.Split('\r');
+            for (int i = 1; i < result.Length; i++)
+            {
+                result[i] = result[i].Substring(1);
+            }
+            return result;
+        }
     }
 }
