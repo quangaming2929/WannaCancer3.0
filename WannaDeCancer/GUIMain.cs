@@ -36,9 +36,9 @@ namespace WannaDeCancer
             {
                 DateTime dt = DateTime.Now;
                 string stream = "Start: " + dt + "\r\nRaise: ";
-                dt.AddDays(3);
+                dt = dt.AddDays(3);
                 stream += dt + "\r\nLost: ";
-                dt.AddDays(4);
+                dt = dt.AddDays(4);
                 stream += dt;
                 Static.StringtoFile(stream, @"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt");
             }
@@ -101,6 +101,12 @@ namespace WannaDeCancer
             }
             
 
+
+        }
+
+        private void TimeCountDown()
+        {
+            DateTime dt = DateTime.Now;
 
         }
     }
