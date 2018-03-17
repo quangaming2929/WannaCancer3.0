@@ -31,7 +31,6 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.cbxLang = new System.Windows.Forms.ComboBox();
             this.txbDescription = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlRaise = new System.Windows.Forms.Panel();
             this.lbRaiseTimeLeft = new System.Windows.Forms.Label();
             this.lbDesTimeLeftRaise = new System.Windows.Forms.Label();
@@ -45,13 +44,14 @@
             this.llbHelpVt = new System.Windows.Forms.LinkLabel();
             this.llbBuy = new System.Windows.Forms.LinkLabel();
             this.pnlinfo = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbID = new System.Windows.Forms.TextBox();
             this.lbSend = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlRaise.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlinfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbTitle
@@ -85,16 +85,6 @@
             this.txbDescription.Name = "txbDescription";
             this.txbDescription.Size = new System.Drawing.Size(574, 497);
             this.txbDescription.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WannaDeCancer.Properties.Resources.Icon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // pnlRaise
             // 
@@ -235,19 +225,19 @@
             // pnlinfo
             // 
             this.pnlinfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlinfo.Controls.Add(this.textBox2);
+            this.pnlinfo.Controls.Add(this.txbID);
             this.pnlinfo.Controls.Add(this.lbSend);
             this.pnlinfo.Location = new System.Drawing.Point(226, 551);
             this.pnlinfo.Name = "pnlinfo";
             this.pnlinfo.Size = new System.Drawing.Size(468, 67);
             this.pnlinfo.TabIndex = 6;
             // 
-            // textBox2
+            // txbID
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(408, 20);
-            this.textBox2.TabIndex = 6;
+            this.txbID.Location = new System.Drawing.Point(7, 26);
+            this.txbID.Name = "txbID";
+            this.txbID.Size = new System.Drawing.Size(408, 20);
+            this.txbID.TabIndex = 6;
             // 
             // lbSend
             // 
@@ -268,6 +258,17 @@
             this.btnSend.TabIndex = 8;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WannaDeCancer.Properties.Resources.Icon;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(185, 136);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // GUIMain
             // 
@@ -288,13 +289,13 @@
             this.Name = "GUIMain";
             this.Text = "Wanna DeCanceror 3.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUIMain_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlRaise.ResumeLayout(false);
             this.pnlRaise.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlinfo.ResumeLayout(false);
             this.pnlinfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,7 +320,7 @@
         private System.Windows.Forms.LinkLabel llbHelpVt;
         private System.Windows.Forms.LinkLabel llbBuy;
         private System.Windows.Forms.Panel pnlinfo;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbID;
         private System.Windows.Forms.Label lbSend;
         private System.Windows.Forms.Button btnSend;
     }

