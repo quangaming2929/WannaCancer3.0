@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaDetector", "WannaDetec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaDeCancer", "WannaDeCancer\WannaDeCancer.csproj", "{35EA2F36-AA01-4673-A3E3-EFA3D26BB550}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaGetCancerID", "WannaGetCancerID\WannaGetCancerID.csproj", "{7E11A6FE-5933-4E37-85FB-308739EB031A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{35EA2F36-AA01-4673-A3E3-EFA3D26BB550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35EA2F36-AA01-4673-A3E3-EFA3D26BB550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35EA2F36-AA01-4673-A3E3-EFA3D26BB550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E11A6FE-5933-4E37-85FB-308739EB031A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E11A6FE-5933-4E37-85FB-308739EB031A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E11A6FE-5933-4E37-85FB-308739EB031A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E11A6FE-5933-4E37-85FB-308739EB031A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

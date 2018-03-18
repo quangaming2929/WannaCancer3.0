@@ -40,7 +40,6 @@
             this.Name = "WannaCancer";
             this.Text = "Form1";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WannaCancer_FormClosing);
             this.Click += new System.EventHandler(this.WannaCancer_Click);
             this.ResumeLayout(false);
 
