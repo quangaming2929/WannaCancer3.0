@@ -43,6 +43,13 @@ namespace WannaDeCancer
         #endregion
 
         #region EventHandler
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            if (ckbLocalKey.Checked == true)
+                DecryptFile(txbChooseFile.Text, 0);
+            else
+                DecryptFile(txbChooseFile.Text, int.Parse(txbKey.Text));
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -81,9 +88,19 @@ namespace WannaDeCancer
             }
             else
             {
-                //txbOutput.Text = decryptStream();
+                txbStreamOut.Text = decryptStream();
             }
             firsttime = true;
+        }
+
+        private string decryptStream()
+        {
+            char[] charSet = txbStreamIN.Text.ToArray();
+            for (int i = 0; i < charSet.Length; i++)
+            {
+                charSet[i] -= (char)keygen;
+            }
+            return new string(charSet);
         }
         #endregion
 
@@ -117,7 +134,7 @@ namespace WannaDeCancer
             {
                 FileInfo file = new FileInfo(item);
                 string fe = file.Extension;
-                DecryptFile(item);
+                DecryptFile(item, 0);
             }
 
             foreach (string item in directories)
@@ -125,8 +142,11 @@ namespace WannaDeCancer
                 AutoDecrypt(item);
             }
         }
-        private void DecryptFile(string path)
+        private void DecryptFile(string path, int key)
         {
+            int keygen = key;
+            if (keygen == 0)
+                keygen = this.keygen;
             try
             {
                 FileStream fs = new FileStream(path, FileMode.Open);
@@ -162,6 +182,12 @@ namespace WannaDeCancer
                 return;
             }
         }
+
         #endregion
+
+        private void Decrypt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

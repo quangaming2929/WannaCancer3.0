@@ -165,6 +165,7 @@
             this.btnDecrypt.TabIndex = 11;
             this.btnDecrypt.Text = "Decrypt This File";
             this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // txbStreamIN
             // 
@@ -260,6 +261,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Decrypt";
             this.Text = "Decrypt";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Decrypt_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
