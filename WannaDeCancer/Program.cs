@@ -16,7 +16,7 @@ namespace WannaDeCancer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WannaDeCancer());
+            Application.Run(new Decrypt(4));
         }
     }
 }
